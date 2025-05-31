@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "build-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/index.android.bundle --assets-dest android/app/src/main/res --reset-cache && rm -rf ./android/app/src/main/res/drawable-*",
     "ios": "react-native run-ios",
+    "build-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output ios/main.jsbundle --assets-dest ios --reset-cache",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "del-watchman": "watchman watch-del-all"
   },
   "dependencies": {
     "react": "19.0.0",
